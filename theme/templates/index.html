@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}        
+
+    <h1>Active Projects</h1>
+
+    {% for page in articles %}
+        {% if page.category == 'active_projects'  %}
+            <div>
+                <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}">
+                    {{ page.title }}
+                </a>
+                <p>Featured on: {{page.featured}}</p>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h1>Old Projects</h1>
+
+    {% for page in articles %}
+        {% if page.category == 'old_projects'  %}
+            <div>
+                <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="Permalink to {{ page.title|striptags }}">
+                    {{ page.title }}
+                </a>
+                <p>Featured on: {{page.featured}}</p>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+
+
+
+{% endblock content %}
